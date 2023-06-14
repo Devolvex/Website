@@ -5,3 +5,23 @@
 :root {
   background-color: #000000;
 }
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary) var(--primary);
+}
+
+*::-webkit-scrollbar {
+  width: 6.5px;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 0px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(26, 25, 25);
+  border-radius: 12px;
+  border-width: 1px;
+  border: 1px solid rgb(26, 25, 25);
+}
