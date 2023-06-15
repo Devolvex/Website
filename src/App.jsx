@@ -38,7 +38,7 @@ function App() {
         duration: 1,
       }
     );
-  }, []);
+  }, );
 
   const generateProjects = () => {
     const projectsData = [
@@ -46,41 +46,32 @@ function App() {
         title: "Project 1",
         image: "https://example.com/project1.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        link: "https://google.com/"
       },
       {
         title: "Project 2",
         image: "https://example.com/project2.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        link: "https://google.com/"
       },
       {
         title: "Project 3",
         image: "https://example.com/project3.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        link: "https://google.com/"
       },
     ];
 
-    // Randomize the order of projects
-    const randomizedProjects = shuffleArray(projectsData);
-
-    return randomizedProjects.map((project, index) => (
+    return projectsData.map((project, index) => (
       <ProjectCard
         key={index}
         title={project.title}
         image={project.image}
         description={project.description}
+        link={project.link}
         index={index}
       />
     ));
-  };
-
-  // Fisher-Yates shuffle algorithm
-  const shuffleArray = (array) => {
-    const newArray = [...array];
-    for (let i = newArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-    }
-    return newArray;
   };
 
   return (
@@ -169,14 +160,12 @@ function ProjectCard({ title, image, description, index }) {
   }, []);
 
   return (
-    <div
-      ref={projectRef}
-      className="bg-white rounded-lg shadow-lg p-6 max-w-sm"
-      style={{ zIndex: 100 - index }}
-    >
+    <div ref={projectRef} className="bg-white rounded-lg shadow-lg p-6 max-w-sm" style={{ zIndex: 100 - index }}>
       <img src={image} className="w-full mb-4" alt={title} />
       <h2 className="text-xl font-bold mb-2">{title}</h2>
       <p className="text-gray-600">{description}</p>
+      <a href="aa"></a>
+      <button className="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">View Project</button>
     </div>
   );
 }
